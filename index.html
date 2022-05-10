@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="description" content="">
+    <meta name="generator" content="HEX by Intrepid">
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        body { background:#fff; }
+    </style>
+  </head>
+
+
+  <body>
+
+1
+2
+3
+4
+5
+6
+<!--6面ダイス-->
+<input type="button" value="ダイスロールボタン" onclick="getDice();">
+<span id="condice"></span>
+ 
+<!--ツイートボタン-->
+<a id="twitter_button" class="btn">この結果をツイート</a>
+
+<script>
+ 
+
+//ダイスロールボタンが押された時の処理
+function getDice() {
+    var dice = Math.floor(Math.random() * 6);          
+    document.getElementById('condice').innerHTML = (dice + 1);
+}
+ 
+//ツイートボタンが押された時の処理
+$('#twitter_button').click(function() {
+    //出目をHTMLから取得する
+    var Deme = document.getElementById("condice").innerHTML;
+　　//ツイート内容をセット
+　　var tw_contents = ("あなたの出目は【" + Deme + "】です");
+　　var url = "[my_home_url]";
+　　//#twitter_buttonのhrefにパラメーターを渡す
+　　window.open().location.href = ("https://twitter.com/share?url=" + url + "&text=" + tw_contents + "&count=none&lang=ja");
+});
+
+</script>
+
+  </body>
+</html>
